@@ -11,6 +11,7 @@ The user can input a small amount of information about the card; the app will th
 ### Scryfall API
 Manually entering and saving the details for all 78 000 cards is not realistic for the scope of this project. Luckily, there is a public access API for the website Scryfall allows us to search through all *Magic* cards. For ease of use offline, and for ease of use of the data by the app, the details fetched when a card is added (delivered in a json format) are saved to the database as card objects. 
 ## Audience
+[[app name]] is aimed at players of the *Magic: The Gathering* trading card game. Its collection management tools aid collectors, one of the primary types of *Magic* fans. On the flip side, its deck tools allows players of the game to keep track of their decks, including the specific cards eac deck is built out of, and other deck metadata. 
 
 ## Resources
 ### GitHub Repository
