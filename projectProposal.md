@@ -43,6 +43,57 @@ Some cards can become extremely valuable as collectors items, and those prices c
 Codex is aimed at players of the *Magic: The Gathering* trading card game. Its collection management tools aid collectors, one of the primary types of *Magic* fans. On the flip side, its deck tools allows players of the game to keep track of their decks, including the specific cards each deck is built out of, and other deck metadata. 
 
 ## Resources
+
+### Entity Relationship Diagram
+```mermaid
+erDiagram
+    f["Formats"]{
+        **PK** formatId
+        int deckSize
+        bool enforceColourId
+        string sizeType
+    }
+    b["Bans"]{
+        **PK** banId
+        **FK** formatId
+        **FK** cardId
+    }
+    cc["CataloguedCards"]{
+        **PK** cardId
+        date addDate
+        currency initialPrice
+        string scryfallUuid
+        string name
+        string manaCost
+        string imageAddress
+        string oracleText
+        int power
+        int toughness
+        string typeLine
+        string treatment
+        string setCode
+        int collectorCode
+        currency lastKnownPrice
+        string flavourText
+    }
+    c["Collections"]{
+        **PK** collectionId
+        **FK** formatId
+        string name
+    }
+    cl["CardLink"]{
+        **PK** linkId
+        **FK** cardId
+        **FK** collectionId
+    }
+
+    cc||--o{cl:links
+    c||--o{cl:links
+    cc||--o{b:restricts
+    f||--o{c:follows
+    f||--o{b:restricts
+```
+
 ### GitHub Repository
 [https://github.com/m-bernardin/AppDev-LIA](https://github.com/m-bernardin/AppDev-LIA)
 
