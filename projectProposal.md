@@ -42,13 +42,8 @@ Codex is aimed at players of the *Magic: The Gathering* trading card game. Its c
 
 ## Resources
 
-
+### Entity Relationship Diagram
 ```mermaid
-
----
-title: ### Entity Relationship Diagram
----
-
 erDiagram
     f["Formats"]{
         **PK** formatId
