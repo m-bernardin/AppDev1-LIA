@@ -16,6 +16,8 @@ This all raises a fundemental issue: how can one keep track of such a diverse se
 Codex will accept input from the user to add or remove cards from their collection. The user can inut limited information about the card, such as a fragment of the name, and the app will query the Scryfall API to access the card's complete details. It will then save these details in the database. The user can then sort, search and categorize their cards into various kinds of collections, such as *Binders* which will regroup cards the user wants to keep together for ease, or *Decks* which must follow restrictions based on the game format the user intends to play them in.
 ### Card Input
 The user can input a small amount of information about the card; the app will then fetch all of the necessary card details and save it to the users collection in the database. 
+### Database
+We will use a local SQLite database to save card and collection information.
 ### Scryfall API
 Manually entering and saving the details for the thousands of cards is not realistic for the scope of this project. Luckily, there is a public access API for the website Scryfall that allows us to search through all *Magic* cards. For ease of use offline, and for ease of use of the data by the app, the details fetched when a card is added (delivered in a json format) are saved to the database as card objects. 
 ### Card List Files
