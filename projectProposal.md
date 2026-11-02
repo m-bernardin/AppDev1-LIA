@@ -47,16 +47,34 @@ Codex is aimed at players of the *Magic: The Gathering* trading card game. Its c
 ### Preliminary UML Class Diagram
 ```mermaid
 classDiagram
-    class c["Card"]{}
-    class cc["CardCollection"]{}
+    class c["Card"]{ 
+	cardID
+	name
+	type
+	rules
+	recentPrices
+	art
+	fetchCurrentPrice()
+		}
+    class cc["CardCollection"]{
+	collectionId
+	addCard(card)
+	sort(criteria)}
     class b["Binder"]{}
-    class d["Deck"]{}
-    class w["Wishlist"]{}
-    class fh["FileHandler"]{}
-    class qi["QueryInterpreter"]{}
+    class d["Deck"]{
+	format
+	legal
+	}
+    class w["Wishlist"]{
+	transfer(card)}
+    class fh["FileHandler"]{
+	decodeFile(file)
+	generateFile(collection)}
+    class qi["QueryInterpreter"]{
+	processQuery(query)
+	}
     class si["SyntaxInterpreter"]{}
     class vm["ViewModels"]{}
-    cc--o c
     cc<|--b
     cc<|--d
     cc<|--w
