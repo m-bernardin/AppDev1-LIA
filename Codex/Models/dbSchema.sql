@@ -27,4 +27,16 @@ CREATE TABLE CataloguedCards(
     flavourText TEXT,
 
     CONSTRAINT PK_CataloguedCards PRIMARY KEY(cardId AUTOINCREMENT)
-)
+);
+
+CREATE TABLE Bans(
+    banId INTEGER,
+    formatId INTEGER,
+    cardId INTEGER,
+
+    CONSTRAINT PK_Bans PRIMARY KEY(banId AUTOINCREMENT),
+    CONSTRAINT FK_Bans_Formats FOREIGN KEY (formatId)
+        REFERENCES Formats(formatId),
+    CONSTRAINT FK_Bans_CataloguedCards FOREIGN KEY (cardId)
+        REFERENCES CataloguedCards(cardId)
+);
