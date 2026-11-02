@@ -40,3 +40,13 @@ CREATE TABLE Bans(
     CONSTRAINT FK_Bans_CataloguedCards FOREIGN KEY (cardId)
         REFERENCES CataloguedCards(cardId)
 );
+
+CREATE TABLE Collections(
+    collectionId INTEGER,
+    formatId INTEGER,
+    name TEXT,
+
+    CONSTRAINT PK_Collecctions PRIMARY KEY(collectionId),
+    CONSTRAINT FK_Collections_Format FOREIGN KEY (formatId)
+        REFERENCES Format(formatId)
+)
