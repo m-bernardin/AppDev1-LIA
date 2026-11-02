@@ -49,4 +49,16 @@ CREATE TABLE Collections(
     CONSTRAINT PK_Collecctions PRIMARY KEY(collectionId),
     CONSTRAINT FK_Collections_Format FOREIGN KEY (formatId)
         REFERENCES Format(formatId)
+);
+
+CREATE TABLE CardLinks(
+    linkId INTEGER,
+    cardId INTEGER,
+    collectionId INTEGER,
+
+    CONSTRAINT PK_CardLinks PRIMARY KEY(linkId AUTOINCREMENT),
+    CONSTRAINT FK_CardLinks_CataloguedCards FOREIGN KEY (cardId)
+        REFERENCES CataloguedCards(cardId),
+    CONSTRAINT FK_CardLinks_Collections FOREIGN KEY (collectionId)
+        REFERENCES Collections(collectionId)
 )
